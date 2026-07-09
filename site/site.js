@@ -1,4 +1,45 @@
 document.addEventListener('DOMContentLoaded', () => {
+  const analyticsId = document.body.dataset.analyticsId;
+  const analyticsPreferenceKey = 'dr-analytics-consent';
+
+  const enableAnalytics = () => {
+    if (!analyticsId || document.querySelector('[data-analytics-loader]')) return;
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${analyticsId}`;
+    script.dataset.analyticsLoader = 'true';
+    document.head.appendChild(script);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function gtag() { window.dataLayer.push(arguments); };
+    window.gtag('js', new Date());
+    window.gtag('config', analyticsId, { anonymize_ip: true });
+  };
+
+  const trackEvent = (name, parameters = {}) => {
+    if (typeof window.gtag === 'function') window.gtag('event', name, parameters);
+  };
+
+  const preference = window.localStorage.getItem(analyticsPreferenceKey);
+  if (preference === 'accepted') {
+    enableAnalytics();
+  } else if (!preference) {
+    const consent = document.createElement('aside');
+    consent.className = 'analytics-consent';
+    consent.setAttribute('role', 'dialog');
+    consent.setAttribute('aria-label', 'Privacykeuze');
+    consent.innerHTML = '<p>We gebruiken optionele statistieken om te zien welk geraas gelezen wordt.</p><div><button data-analytics-decline>Alleen noodzakelijk</button><button data-analytics-accept>Statistieken toestaan</button></div>';
+    document.body.appendChild(consent);
+    consent.querySelector('[data-analytics-decline]').addEventListener('click', () => {
+      window.localStorage.setItem(analyticsPreferenceKey, 'declined');
+      consent.remove();
+    });
+    consent.querySelector('[data-analytics-accept]').addEventListener('click', () => {
+      window.localStorage.setItem(analyticsPreferenceKey, 'accepted');
+      enableAnalytics();
+      consent.remove();
+    });
+  }
+
   const search = document.querySelector('[data-search]');
   const category = document.querySelector('[data-category]');
   const items = [...document.querySelectorAll('[data-archive-list] .archive-item')];
@@ -28,8 +69,13 @@ document.addEventListener('DOMContentLoaded', () => {
       } catch {
         window.prompt('Kopieer deze link:', url);
       }
+      trackEvent('copy_article_link');
       window.setTimeout(() => { button.innerHTML = 'Kopieer link <span>↗</span>'; }, 2200);
     });
+  });
+
+  document.querySelectorAll('a[href*="instagram.com/deraaskalderij"]').forEach(link => {
+    link.addEventListener('click', () => trackEvent('instagram_click'));
   });
 
   const current = window.location.pathname.replace(/index\.html$/, '').replace(/\/$/, '');

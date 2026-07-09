@@ -25,6 +25,7 @@ const meta = {
 const categoryNames = { politiek: 'Politiek', voetbal: 'Voetbal', vlaanderen: 'Vlaanderen', brussel: 'Brussel', gent: 'Gent', cultuur: 'Cultuur' };
 const categoryOrder = ['politiek', 'voetbal', 'vlaanderen', 'brussel', 'gent', 'cultuur'];
 const featuredSlug = 'mohammed-marokko-vuvuzelas';
+const analyticsId = 'G-Q86K726RDS';
 
 const escape = (value = '') => value.replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[char]));
 const plain = (value = '') => value.replace(/\s+/g, ' ').trim();
@@ -76,7 +77,7 @@ function footer(rootPath) {
 
 function layout({ title, description, rootPath, content, canonical = '' }) {
   const pageTitle = title ? `${title} | De Raaskalderij` : 'De Raaskalderij | Ambachtelijk geraas sinds 1836';
-  return `<!doctype html><html lang="nl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="${escape(description)}"><meta name="theme-color" content="#111111"><meta property="og:site_name" content="De Raaskalderij"><meta property="og:title" content="${escape(pageTitle)}"><meta property="og:description" content="${escape(description)}">${canonical ? `<link rel="canonical" href="${canonical}">` : ''}<title>${escape(pageTitle)}</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700;8..60,800&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="${rootPath}site.css"><script defer src="${rootPath}site.js"></script></head><body data-root="${rootPath}">${nav(rootPath)}<main>${content}</main>${footer(rootPath)}</body></html>`;
+  return `<!doctype html><html lang="nl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="${escape(description)}"><meta name="theme-color" content="#111111"><meta property="og:site_name" content="De Raaskalderij"><meta property="og:title" content="${escape(pageTitle)}"><meta property="og:description" content="${escape(description)}">${canonical ? `<link rel="canonical" href="${canonical}">` : ''}<title>${escape(pageTitle)}</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700;8..60,800&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="${rootPath}site.css"><script defer src="${rootPath}site.js"></script></head><body data-root="${rootPath}" data-analytics-id="${analyticsId}">${nav(rootPath)}<main>${content}</main>${footer(rootPath)}</body></html>`;
 }
 
 function card(post, rootPath, featured = false) {
