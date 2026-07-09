@@ -13,11 +13,26 @@ document.addEventListener('DOMContentLoaded', () => {
     window.gtag = function gtag() { window.dataLayer.push(arguments); };
     window.gtag('js', new Date());
     window.gtag('config', analyticsId, { anonymize_ip: true });
+    trackContextEvents();
   };
 
   const trackEvent = (name, parameters = {}) => {
     if (typeof window.gtag === 'function') window.gtag('event', name, parameters);
   };
+
+  function trackContextEvents() {
+    const article = document.querySelector('.article');
+    if (article) {
+      trackEvent('article_view', {
+        article_title: article.querySelector('h1')?.textContent?.trim() || 'Onbekend artikel',
+        article_category: article.querySelector('.article-category')?.textContent?.trim() || 'Onbekend',
+      });
+    }
+
+    if (document.querySelector('[data-waitlist-form]')) {
+      trackEvent('newsletter_view', { placement: 'waitlist_page' });
+    }
+  }
 
   const preference = window.localStorage.getItem(analyticsPreferenceKey);
   if (preference === 'accepted') {
@@ -82,14 +97,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const waitlistFrame = document.querySelector('iframe[name="waitlist-response"]');
   const waitlistSuccess = document.querySelector('[data-waitlist-success]');
   let waitlistSubmitted = false;
+  let waitlistSignupTracked = false;
   waitlistForm?.addEventListener('submit', () => {
     waitlistSubmitted = true;
   });
   waitlistFrame?.addEventListener('load', () => {
-    if (!waitlistSubmitted || !waitlistSuccess) return;
+    if (!waitlistSubmitted || !waitlistSuccess || waitlistSignupTracked) return;
+    waitlistSignupTracked = true;
     waitlistSuccess.hidden = false;
     waitlistForm?.reset();
-    trackEvent('newsletter_signup');
+    trackEvent('newsletter_signup', { placement: 'waitlist_page' });
   });
 
   const current = window.location.pathname.replace(/index\.html$/, '').replace(/\/$/, '');
