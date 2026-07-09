@@ -78,6 +78,20 @@ document.addEventListener('DOMContentLoaded', () => {
     link.addEventListener('click', () => trackEvent('instagram_click'));
   });
 
+  const waitlistForm = document.querySelector('[data-waitlist-form]');
+  const waitlistFrame = document.querySelector('iframe[name="waitlist-response"]');
+  const waitlistSuccess = document.querySelector('[data-waitlist-success]');
+  let waitlistSubmitted = false;
+  waitlistForm?.addEventListener('submit', () => {
+    waitlistSubmitted = true;
+  });
+  waitlistFrame?.addEventListener('load', () => {
+    if (!waitlistSubmitted || !waitlistSuccess) return;
+    waitlistSuccess.hidden = false;
+    waitlistForm?.reset();
+    trackEvent('newsletter_signup');
+  });
+
   const current = window.location.pathname.replace(/index\.html$/, '').replace(/\/$/, '');
   document.querySelectorAll('.nav a').forEach(link => {
     const target = new URL(link.href).pathname.replace(/index\.html$/, '').replace(/\/$/, '');

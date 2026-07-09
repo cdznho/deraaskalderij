@@ -27,6 +27,8 @@ const categoryOrder = ['politiek', 'voetbal', 'vlaanderen', 'brussel', 'gent', '
 const featuredSlug = 'mohammed-marokko-vuvuzelas';
 const analyticsId = 'G-Q86K726RDS';
 const siteUrl = 'https://cdznho.github.io/deraaskalderij';
+const waitlistFormAction = 'https://docs.google.com/forms/d/e/1FAIpQLSf3MvykFejEM2uANZf6Sy-hs2lpVfaIHGz2PW66A8yxutXXZA/formResponse';
+const waitlistEmailField = 'entry.442177541';
 
 const escape = (value = '') => value.replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[char]));
 const plain = (value = '') => value.replace(/\s+/g, ' ').trim();
@@ -69,11 +71,11 @@ async function getPosts() {
 }
 
 function nav(rootPath) {
-  return `<header class="site-header"><div class="masthead"><a class="wordmark" href="${rootPath}" aria-label="De Raaskalderij home"><span>De Raaskalderij</span><b>.</b></a><p>Ambachtelijk geraas sinds 1836</p><a class="instagram-link" href="https://www.instagram.com/deraaskalderij/" target="_blank" rel="noreferrer">Instagram <span aria-hidden="true">↗</span></a></div><nav class="nav" aria-label="Hoofdnavigatie"><a href="${rootPath}">Home</a>${categoryOrder.slice(0, 5).map(key => `<a href="${rootPath}categorie/${key}/">${categoryNames[key]}</a>`).join('')}<a href="${rootPath}archief/">Archief</a><a href="${rootPath}over/">Over</a></nav></header>`;
+  return `<header class="site-header"><div class="masthead"><a class="wordmark" href="${rootPath}" aria-label="De Raaskalderij home"><span>De Raaskalderij</span><b>.</b></a><p>Ambachtelijk geraas sinds 1836</p><a class="instagram-link" href="https://www.instagram.com/deraaskalderij/" target="_blank" rel="noreferrer">Instagram <span aria-hidden="true">↗</span></a></div><nav class="nav" aria-label="Hoofdnavigatie"><a href="${rootPath}">Home</a>${categoryOrder.slice(0, 5).map(key => `<a href="${rootPath}categorie/${key}/">${categoryNames[key]}</a>`).join('')}<a href="${rootPath}archief/">Archief</a><a href="${rootPath}nieuwsbrief/">Wachtlijst</a><a href="${rootPath}over/">Over</a></nav></header>`;
 }
 
 function footer(rootPath) {
-  return `<footer class="footer"><p><strong>De Raaskalderij.</strong> Een satirische publicatie. De feiten dragen een snor, de koppen een das.</p><div><a href="${rootPath}over/">Over &amp; disclaimer</a><a href="https://www.instagram.com/deraaskalderij/" target="_blank" rel="noreferrer">Instagram ↗</a></div></footer>`;
+  return `<footer class="footer"><p><strong>De Raaskalderij.</strong> Een satirische publicatie. De feiten dragen een snor, de koppen een das.</p><div><a href="${rootPath}nieuwsbrief/">Wachtlijst</a><a href="${rootPath}over/">Over &amp; disclaimer</a><a href="https://www.instagram.com/deraaskalderij/" target="_blank" rel="noreferrer">Instagram ↗</a></div></footer>`;
 }
 
 function layout({ title, description, rootPath, content, canonical = '' }) {
@@ -129,6 +131,11 @@ function aboutPage() {
   return layout({ title: 'Over', description: 'Over De Raaskalderij, ambachtelijk geraas sinds 1836.', rootPath: '../', content: `<section class="about"><p class="eyebrow">OVER DE REDACTIE</p><h1>Nieuws dat zijn das heeft <em>omgedaan.</em></h1><div class="about-copy"><p>De Raaskalderij maakt Vlaamse satire met de ernst van een gemeenteraad en het beoordelingsvermogen van een veel te lange toogpraat.</p><p>We nemen actuele verhalen als vertrekpunt, lopen er een eind mee weg en komen pas terug wanneer de punchline administratief verantwoord is.</p><p>Alles op deze site is satire. Werkelijke personen kunnen in een grap verschijnen wanneer hun publieke rol het onderwerp is. De fictieve mensen in onze verhalen zijn net zo verzonnen als hun functieomschrijving.</p><a class="solid-link" href="https://www.instagram.com/deraaskalderij/" target="_blank" rel="noreferrer">Volg De Raaskalderij op Instagram <span>↗</span></a></div></section>` });
 }
 
+function newsletterPage() {
+  const rootPath = '../';
+  return layout({ title: 'Wachtlijst', description: 'Ontvang het meest overbodige overzicht van de week van De Raaskalderij.', rootPath, content: `<section class="waitlist"><div class="waitlist-intro"><p class="eyebrow">DE WACHTLIJST</p><h1>Het wekelijkse geraas, <em>net op tijd te laat.</em></h1><p>Een overzicht van de koppen die geen mens vroeg, maar waar u toch een mening over had.</p></div><div class="waitlist-signup"><p class="waitlist-kicker">REDACTIEBRIEF</p><h2>Laat ons u lastigvallen op een verantwoord moment.</h2><form class="waitlist-form" data-waitlist-form action="${waitlistFormAction}" method="post" target="waitlist-response"><label for="waitlist-email">E-mailadres</label><div><input id="waitlist-email" name="${waitlistEmailField}" type="email" autocomplete="email" inputmode="email" required placeholder="u@voorbeeld.be"><button type="submit">Op de wachtlijst <span aria-hidden="true">→</span></button></div></form><p class="waitlist-privacy">Alleen voor de nieuwsbrief. Uitschrijven kan altijd via Instagram.</p><p class="waitlist-success" data-waitlist-success hidden aria-live="polite">Genoteerd. De redactie doet alsof dit heel gewoon is.</p><iframe name="waitlist-response" title="Wachtlijstbevestiging" hidden></iframe></div></section>` });
+}
+
 async function writePage(path, html) {
   const destination = join(out, path);
   await mkdir(dirname(destination), { recursive: true });
@@ -146,9 +153,10 @@ const posts = await getPosts();
 await writePage('index.html', home(posts));
 await writePage('archief/index.html', archivePage(posts));
 await writePage('over/index.html', aboutPage());
+await writePage('nieuwsbrief/index.html', newsletterPage());
 for (const category of categoryOrder) await writePage(`categorie/${category}/index.html`, listingPage(posts, category));
 for (const post of posts) await writePage(`artikel/${post.slug}/index.html`, articlePage(post, posts));
-const sitemapPaths = ['', 'archief/', 'over/', ...categoryOrder.map(category => `categorie/${category}/`), ...posts.map(post => `artikel/${post.slug}/`)];
+const sitemapPaths = ['', 'archief/', 'nieuwsbrief/', 'over/', ...categoryOrder.map(category => `categorie/${category}/`), ...posts.map(post => `artikel/${post.slug}/`)];
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemapPaths.map(path => `  <url><loc>${siteUrl}/${path}</loc></url>`).join('\n')}\n</urlset>\n`;
 await writeFile(join(out, 'sitemap.xml'), sitemap);
 await writeFile(join(out, 'robots.txt'), `User-agent: *\nAllow: /\nSitemap: ${siteUrl}/sitemap.xml\n`);
