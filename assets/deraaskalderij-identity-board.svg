@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1200" viewBox="0 0 1600 1200">
+  <defs>
+    <style>
+      .bg { fill: #f5f0e6; }
+      .ink { fill: #111111; }
+      .muted { fill: #6f6a61; }
+      .orange { fill: #f15a24; }
+      .yellow { fill: #f2c94c; }
+      .grey { fill: #d8d1c4; }
+      .blue { fill: #2f4858; }
+      .serif { font-family: Georgia, 'Times New Roman', serif; }
+      .sans { font-family: Arial, Helvetica, sans-serif; }
+      .title { font-size: 94px; font-weight: 700; letter-spacing: 0; }
+      .h2 { font-size: 42px; font-weight: 700; letter-spacing: 0; }
+      .body { font-size: 26px; letter-spacing: 0; }
+      .small { font-size: 18px; letter-spacing: 1px; font-weight: 700; }
+      .rule { stroke: #111111; stroke-width: 6; }
+      .thin { stroke: #111111; stroke-width: 2; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1600" height="1200"/>
+
+  <g transform="translate(86 80)">
+    <text class="serif title ink" x="0" y="88">De Raaskalderij</text>
+    <circle class="orange" cx="765" cy="60" r="17"/>
+    <text class="sans body muted" x="4" y="136">Flemish satirical newspaper identity for Instagram</text>
+    <line class="rule" x1="0" y1="180" x2="1428" y2="180"/>
+  </g>
+
+  <g transform="translate(96 300)">
+    <circle cx="170" cy="170" r="164" fill="#f5f0e6" stroke="#111111" stroke-width="18"/>
+    <circle cx="170" cy="170" r="139" fill="none" stroke="#111111" stroke-width="4"/>
+    <text class="serif ink" x="34" y="222" style="font-size: 150px; font-weight: 700;">DR</text>
+    <circle class="orange" cx="294" cy="215" r="22"/>
+    <rect class="yellow" x="132" y="58" width="76" height="10"/>
+    <path d="M158 46 L170 24 L182 46 Z" class="ink"/>
+    <text class="sans small muted" x="24" y="382">PRIMARY PROFILE MARK</text>
+  </g>
+
+  <g transform="translate(520 300)">
+    <text class="sans small muted" x="0" y="0">PALETTE</text>
+    <g transform="translate(0 44)">
+      <rect class="ink" x="0" y="0" width="160" height="108"/>
+      <text class="sans small" fill="#f5f0e6" x="18" y="62">#111111</text>
+      <text class="sans body ink" x="190" y="66">Ink black</text>
+    </g>
+    <g transform="translate(0 174)">
+      <rect class="bg" x="0" y="0" width="160" height="108" stroke="#111111" stroke-width="2"/>
+      <text class="sans small ink" x="18" y="62">#F5F0E6</text>
+      <text class="sans body ink" x="190" y="66">Paper</text>
+    </g>
+    <g transform="translate(0 304)">
+      <rect class="orange" x="0" y="0" width="160" height="108"/>
+      <text class="sans small" fill="#ffffff" x="18" y="62">#F15A24</text>
+      <text class="sans body ink" x="190" y="66">Signal orange</text>
+    </g>
+    <g transform="translate(0 434)">
+      <rect class="yellow" x="0" y="0" width="160" height="108"/>
+      <text class="sans small ink" x="18" y="62">#F2C94C</text>
+      <text class="sans body ink" x="190" y="66">Flemish yellow</text>
+    </g>
+  </g>
+
+  <g transform="translate(1010 300)">
+    <text class="sans small muted" x="0" y="0">TYPOGRAPHY</text>
+    <text class="serif ink" x="0" y="86" style="font-size: 78px; font-weight: 700;">Krantenkop</text>
+    <text class="sans body muted" x="0" y="126">Bold serif for headlines and masthead</text>
+    <text class="sans ink" x="0" y="220" style="font-size: 44px; font-weight: 700;">BINNENLAND</text>
+    <text class="sans body muted" x="0" y="260">Neutral sans for labels and metadata</text>
+    <line class="thin" x1="0" y1="306" x2="405" y2="306"/>
+    <text class="serif ink" x="0" y="388" style="font-size: 47px; font-weight: 700;">Serieus genoeg om fout te lijken.</text>
+    <circle class="orange" cx="390" cy="372" r="13"/>
+  </g>
+
+  <g transform="translate(96 820)">
+    <text class="sans small muted" x="0" y="0">POST TEMPLATE</text>
+    <rect x="0" y="34" width="440" height="270" fill="#f5f0e6" stroke="#111111" stroke-width="5"/>
+    <rect class="ink" x="0" y="34" width="440" height="46"/>
+    <text class="sans small" fill="#f5f0e6" x="22" y="64">BINNENLAND</text>
+    <circle class="orange" cx="406" cy="57" r="11"/>
+    <text class="serif ink" x="24" y="142" style="font-size: 44px; font-weight: 700;">Vlaamse overheid</text>
+    <text class="serif ink" x="24" y="196" style="font-size: 44px; font-weight: 700;">lanceert wachtlijst</text>
+    <text class="serif ink" x="24" y="250" style="font-size: 44px; font-weight: 700;">voor wachtlijst</text>
+    <text class="sans small muted" x="24" y="334">fast, flat, readable, dry</text>
+  </g>
+
+  <g transform="translate(626 820)">
+    <text class="sans small muted" x="0" y="0">QUOTE TEMPLATE</text>
+    <rect x="0" y="34" width="440" height="270" fill="#111111"/>
+    <circle class="orange" cx="54" cy="84" r="16"/>
+    <text class="serif" fill="#f5f0e6" x="42" y="148" style="font-size: 42px; font-weight: 700;">"Eindelijk perspectief</text>
+    <text class="serif" fill="#f5f0e6" x="42" y="202" style="font-size: 42px; font-weight: 700;">voor mensen die</text>
+    <text class="serif" fill="#f5f0e6" x="42" y="256" style="font-size: 42px; font-weight: 700;">nog nergens wachten."</text>
+    <text class="sans small" fill="#d8d1c4" x="42" y="334">fake official quote, real bureaucratic rhythm</text>
+  </g>
+
+  <g transform="translate(1156 820)">
+    <text class="sans small muted" x="0" y="0">VOICE</text>
+    <rect x="0" y="34" width="340" height="270" fill="#d8d1c4"/>
+    <text class="sans body ink" x="28" y="96">1. Sound official.</text>
+    <text class="sans body ink" x="28" y="146">2. Be hyper-local.</text>
+    <text class="sans body ink" x="28" y="196">3. Hide the joke in</text>
+    <text class="sans body ink" x="58" y="232">plain language.</text>
+    <circle class="orange" cx="291" cy="249" r="18"/>
+  </g>
+</svg>

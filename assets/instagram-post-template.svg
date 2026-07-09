@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1080" viewBox="0 0 1080 1080">
+  <defs>
+    <style>
+      .paper { fill: #f5f0e6; }
+      .ink { fill: #111111; }
+      .muted { fill: #6f6a61; }
+      .orange { fill: #f15a24; }
+      .yellow { fill: #f2c94c; }
+      .serif { font-family: Georgia, 'Times New Roman', serif; font-weight: 700; letter-spacing: 0; }
+      .sans { font-family: Arial, Helvetica, sans-serif; letter-spacing: 0; }
+    </style>
+  </defs>
+  <rect class="paper" width="1080" height="1080"/>
+  <rect class="ink" x="70" y="70" width="940" height="84"/>
+  <text class="sans" fill="#f5f0e6" x="104" y="124" style="font-size: 28px; font-weight: 700; letter-spacing: 2px;">BINNENLAND</text>
+  <circle class="orange" cx="962" cy="112" r="18"/>
+
+  <line x1="70" y1="198" x2="1010" y2="198" stroke="#111111" stroke-width="5"/>
+
+  <text class="serif ink" x="88" y="312" style="font-size: 78px;">Vlaamse overheid</text>
+  <text class="serif ink" x="88" y="406" style="font-size: 78px;">lanceert wachtlijst</text>
+  <text class="serif ink" x="88" y="500" style="font-size: 78px;">voor mensen die</text>
+  <text class="serif ink" x="88" y="594" style="font-size: 78px;">op wachtlijst willen</text>
+
+  <circle cx="912" cy="620" r="32" class="orange"/>
+
+  <rect x="88" y="714" width="904" height="2" class="ink"/>
+  <text class="sans muted" x="88" y="778" style="font-size: 31px;">BRUSSEL - Voorlopig alleen toegankelijk na afspraak.</text>
+
+  <g transform="translate(812 850)">
+    <circle cx="76" cy="76" r="70" fill="#f5f0e6" stroke="#111111" stroke-width="10"/>
+    <text class="serif ink" x="20" y="103" style="font-size: 76px;">DR</text>
+    <circle class="orange" cx="129" cy="101" r="12"/>
+  </g>
+</svg>
