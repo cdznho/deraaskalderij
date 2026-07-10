@@ -20,21 +20,21 @@ WASPROGRAMMA
 
 Headline:
 
-Wout Faes blijkt ook door Messi gewassen
+Wout Faes blijkt ooit gewassen door Maradona
 
 Deck:
 
-De verdediger kreeg alvast een extra grondige voorbereiding op Spanje.
+De verdediger van Leicester City beweert dat Maradona wel opmerkelijk veel wit poeder gebruikte.
 
 ## Caption
 
-BRUSSEL - België speelt vanavond tegen Spanje, maar Wout Faes heeft zijn voorbereiding opvallend letterlijk genomen.
+BRUSSEL - Wout Faes heeft naar eigen zeggen een opmerkelijke jeugdherinnering aan Maradona.
 
-Volgens volledig oncontroleerbare beelden kreeg de verdediger gisteren nog een grondige spoelbeurt van Messi. De Argentijn zou daarbij hebben gezegd dat hij na jaren verdedigers passeren nu eindelijk eens eentje mocht afwerken met shampoo.
+De verdediger van Leicester City beweert dat de Argentijn hem ooit grondig waste, maar daarbij wel opmerkelijk veel wit poeder gebruikte. Over het merk shampoo wil Faes voorlopig niets kwijt.
 
-De bond bevestigt dat Faes proper aan de aftrap verschijnt. Over zijn eerste baltoets wordt voorlopig niets beloofd.
+De bond benadrukt dat het om een volledig verzonnen redactieverhaal gaat. De zeep komt van de huisleverancier.
 
-#deraaskalderij #voetbal #belgie #spanje #rodevuivels #woutfaes #messi #satire #vlaanderen
+#deraaskalderij #voetbal #belgie #spanje #rodevuivels #woutfaes #maradona #satire #vlaanderen
 
 ## Image Note
 

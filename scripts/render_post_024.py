@@ -107,7 +107,7 @@ def main():
     draw.text((768, 739), "WASPROGRAMMA", font=font(ARIAL_BOLD, 23), fill=PAPER)
     draw.ellipse((962, 737, 992, 767), fill=YELLOW)
 
-    headline = "Wout Faes blijkt ook door Messi gewassen"
+    headline = "Wout Faes blijkt ooit gewassen door Maradona"
     face, lines, spacing = headline_font(draw, headline)
     y = 864
     for line in lines:
@@ -115,7 +115,7 @@ def main():
         y += spacing
 
     draw.line((70, y + 20, 1010, y + 20), fill=ORANGE, width=5)
-    deck = "De verdediger kreeg alvast een extra grondige voorbereiding op Spanje."
+    deck = "De verdediger van Leicester City beweert dat Maradona wel opmerkelijk veel wit poeder gebruikte."
     deck_y = y + 54
     for line in wrap(draw, deck, font(ARIAL, 28), 800):
         draw.text((70, deck_y), line, font=font(ARIAL, 28), fill=MUTED)
