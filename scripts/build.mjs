@@ -19,12 +19,13 @@ const meta = {
   '019-dewever-secret-santa': { category: 'politiek', date: '2026-07-09', location: 'Melsbroek', tags: ['bart de wever', 'erdogan', 'navo'] },
   '020-club-brugge-stadiondossier': { category: 'voetbal', date: '2026-07-09', location: 'Brugge', tags: ['club brugge', 'stadion', 'jan breydel'] },
   '021-gent-matcha-latte': { category: 'gent', date: '2026-07-09', location: 'Gent', tags: ['gent', 'matcha', 'hipster'] },
-  '022-mohammed-marokko-vuvuzelas': { category: 'voetbal', date: '2026-07-09', location: 'Brussel', tags: ['marokko', 'frankrijk', 'vuvuzela'] }
+  '022-mohammed-marokko-vuvuzelas': { category: 'voetbal', date: '2026-07-09', location: 'Brussel', tags: ['marokko', 'frankrijk', 'vuvuzela'] },
+  '024-wout-faes-messi-wassen': { category: 'voetbal', date: '2026-07-10', location: 'Brussel', tags: ['wout faes', 'maradona', 'belgie', 'spanje'] }
 };
 
 const categoryNames = { politiek: 'Politiek', voetbal: 'Voetbal', vlaanderen: 'Vlaanderen', brussel: 'Brussel', gent: 'Gent', cultuur: 'Cultuur' };
 const categoryOrder = ['politiek', 'voetbal', 'vlaanderen', 'brussel', 'gent', 'cultuur'];
-const featuredSlug = 'mohammed-marokko-vuvuzelas';
+const featuredSlug = 'wout-faes-messi-wassen';
 const analyticsId = 'G-Q86K726RDS';
 const siteUrl = 'https://cdznho.github.io/deraaskalderij';
 const waitlistFormAction = 'https://docs.google.com/forms/d/e/1FAIpQLSf3MvykFejEM2uANZf6Sy-hs2lpVfaIHGz2PW66A8yxutXXZA/formResponse';
@@ -96,7 +97,7 @@ function home(posts) {
   const recent = posts.filter(post => post !== featured).slice(0, 6);
   const popular = [posts.find(post => post.slug === 'club-brugge-stadiondossier'), posts.find(post => post.slug === 'dewever-secret-santa'), posts.find(post => post.slug === 'gent-matcha-latte')].filter(Boolean);
   return layout({ rootPath: '', description: 'Flemische satire met veel te veel vertrouwen in lokale administratieve details.', content: `
-    <section class="edition-bar"><span>EDITIE 09.07.2026</span><span>•</span><span>100% SATIRE</span><span>•</span><span>VOLLEDIG ONBETROUWBAAR</span></section>
+    <section class="edition-bar"><span>EDITIE 10.07.2026</span><span>•</span><span>100% SATIRE</span><span>•</span><span>VOLLEDIG ONBETROUWBAAR</span></section>
     <section class="lead-wrap">${card(featured, '', true)}<aside class="lead-aside"><div class="aside-heading"><span>Het kort geraas</span><i></i></div><ol class="short-list">${shortItems(posts)}</ol><a class="subscribe-block" href="https://www.instagram.com/deraaskalderij/" target="_blank" rel="noreferrer"><span>Volg de redactie</span><strong>Instagram <b>↗</b></strong><small>Voor wie nieuws liever eerst aanvoelt dan factcheckt.</small></a></aside></section>
     <section class="section-heading"><p>Vers van de pers</p><a href="archief/">Naar het archief <span>→</span></a></section>
     <section class="story-grid">${recent.map(post => card(post, '')).join('')}</section>
