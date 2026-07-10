@@ -93,6 +93,13 @@ document.addEventListener('DOMContentLoaded', () => {
     link.addEventListener('click', () => trackEvent('instagram_click'));
   });
 
+  document.querySelectorAll('.nav a, .category-links a, .section-heading a, .read-link').forEach(link => {
+    link.addEventListener('click', () => {
+      const destination = new URL(link.href, window.location.href).pathname || '/';
+      trackEvent('content_navigation_click', { destination });
+    });
+  });
+
   const waitlistForm = document.querySelector('[data-waitlist-form]');
   const waitlistFrame = document.querySelector('iframe[name="waitlist-response"]');
   const waitlistSuccess = document.querySelector('[data-waitlist-success]');

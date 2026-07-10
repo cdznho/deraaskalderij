@@ -107,6 +107,35 @@ img { display: block; width: 100%; height: auto; }
 .share-rail p { margin: 0 0 16px; font: 10px var(--mono); letter-spacing: .07em; text-transform: uppercase; }
 .share-rail button, .share-rail a { display: flex; justify-content: space-between; width: 100%; border: 0; border-bottom: 1px solid var(--ink); background: transparent; padding: 11px 0; color: var(--ink); text-align: left; font: 600 12px var(--sans); }
 .share-rail span { color: var(--orange); }
+.article-interactions { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 34px 54px; margin: 38px auto 78px; border-top: 5px solid var(--ink); padding-top: 23px; }
+.interaction-intro h2 { max-width: 430px; margin: 0; font: 800 clamp(2rem, 3.3vw, 3.25rem)/.98 var(--serif); }
+.interaction-intro h2 em { color: var(--orange); font-style: normal; }
+.interaction-intro > p:last-child { max-width: 33ch; margin: 15px 0 0; color: #48443e; font-size: 14px; }
+.interaction-action { align-self: start; padding-top: 4px; }
+.like-button { display: flex; align-items: center; justify-content: space-between; width: 100%; border: 2px solid var(--ink); border-radius: 0; background: var(--paper); padding: 13px 15px; color: var(--ink); font: 700 13px var(--sans); text-transform: uppercase; letter-spacing: .04em; transition: background .18s, color .18s; }
+.like-button:hover, .like-button[aria-pressed='true'] { background: var(--ink); color: var(--paper); }
+.like-button span { color: var(--orange); font-size: 21px; line-height: 0; }
+.like-button b { color: var(--orange); font: 12px var(--mono); }
+.interaction-action p { margin: 9px 0 0; color: var(--muted); font: 10px var(--mono); letter-spacing: .02em; }
+.comments { grid-column: 1 / -1; border-top: 1px solid var(--ink); }
+.comments-head { display: flex; justify-content: space-between; align-items: baseline; gap: 20px; border-bottom: 1px solid var(--ink); padding: 13px 0; }
+.comments-head p { margin: 0; font: 700 20px var(--serif); }
+.comments-head span { color: var(--orange); font: 11px var(--mono); }
+.comments-head small { color: var(--muted); font: 10px var(--mono); letter-spacing: .04em; text-transform: uppercase; }
+.comments-list:empty::before { display: block; padding: 20px 0; color: var(--muted); content: 'De redactie wacht nog op de eerste onmisbare mening.'; font-size: 14px; }
+.comment { border-bottom: 1px solid var(--ink); padding: 18px 0; }
+.comment-head { display: flex; justify-content: space-between; gap: 16px; margin-bottom: 6px; }
+.comment-head strong { font-size: 13px; }
+.comment-head time { color: var(--muted); font: 10px var(--mono); }
+.comment p { margin: 0; font-size: 14px; }
+.comment-form { display: grid; gap: 15px; margin-top: 28px; border-top: 4px solid var(--ink); padding-top: 18px; }
+.comment-form label { display: grid; gap: 6px; font: 10px var(--mono); letter-spacing: .05em; text-transform: uppercase; }
+.comment-form input, .comment-form textarea { width: 100%; border: 1px solid var(--ink); border-radius: 0; background: transparent; padding: 11px 12px; color: var(--ink); outline-color: var(--orange); font: 14px var(--sans); letter-spacing: 0; text-transform: none; }
+.comment-form textarea { min-height: 116px; resize: vertical; }
+.comment-form button { justify-self: start; border: 0; border-radius: 0; background: var(--ink); padding: 12px 15px; color: var(--paper); font: 10px var(--mono); letter-spacing: .04em; text-transform: uppercase; }
+.comment-form button span { color: var(--orange); font-size: 17px; }
+.comment-form button:disabled { cursor: wait; opacity: .6; }
+.comment-form p { min-height: 1.2em; margin: -4px 0 0; color: var(--muted); font-size: 12px; }
 .related { padding-bottom: 76px; }
 .related-grid { grid-template-columns: repeat(3, 1fr); }
 .related-grid .story-card h2 { font-size: 1.55rem; }
@@ -199,6 +228,8 @@ img { display: block; width: 100%; height: auto; }
   .article-body { font-size: 18px; }
   .share-rail { display: grid; grid-template-columns: 1fr 1fr; column-gap: 14px; }
   .share-rail p { grid-column: 1 / -1; }
+  .article-interactions { grid-template-columns: 1fr; gap: 27px; margin-bottom: 56px; }
+  .comments { grid-column: auto; }
   .listing-head { padding: 62px 0 42px; }
   .listing-head h1 { font-size: clamp(3.3rem, 15vw, 6rem); }
   .archive-controls { grid-template-columns: 1fr; }
